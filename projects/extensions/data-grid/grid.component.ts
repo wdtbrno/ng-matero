@@ -107,6 +107,7 @@ export class MtxGridComponent implements OnInit, OnChanges, AfterViewInit, OnDes
   expansionRowStates: any[] = [];
 
   @Input() expandable = false;
+  @Input() expandAlways = false;
   @Input() expansionTemplate: TemplateRef<any>;
   @Output() expansionChange = new EventEmitter<any>();
 
