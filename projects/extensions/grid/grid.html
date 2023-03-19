@@ -142,7 +142,7 @@
                 </ng-template>
               </ng-template>
               <ng-template #defaultCellTpl>
-                <button class="mtx-grid-row-expand-button" *ngIf="col.showExpand"
+                <button class="mtx-grid-row-expand-button" *ngIf="col.showExpand && !expandAlways"
                         mat-icon-button mtx-grid-expansion-toggle
                         [(opened)]="expansionRowStates[dataIndex].expanded"
                         (toggleChange)="_onExpansionChange($event, row, col, dataIndex);">
@@ -212,7 +212,7 @@
             <td mat-cell *matCellDef="let row; let dataIndex = dataIndex"
                 [attr.colspan]="displayedColumns.length">
               <div class="mtx-grid-expansion-detail"
-                   [@expansion]="expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed'">
+                   [@expansion]="expandAlways || expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed'">
                 <ng-template [ngTemplateOutlet]="expansionTemplate"
                              [ngTemplateOutletContext]="{ $implicit: row, rowData: row, index: dataIndex, expanded: expansionRowStates[dataIndex].expanded }">
                 </ng-template>
@@ -222,7 +222,7 @@
 
           <tr mat-row
               *matRowDef="let row; columns: ['MtxGridExpansionColumnDef']; let dataIndex = dataIndex"
-              [ngClass]="['mtx-grid-expansion', expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed']">
+              [ngClass]="['mtx-grid-expansion', expandAlways || expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed']">
           </tr>
         </ng-container>
       </table>
@@ -331,7 +331,7 @@
                 </ng-template>
               </ng-template>
               <ng-template #defaultCellTpl>
-                <button class="mtx-grid-row-expand-button" *ngIf="col.showExpand"
+                <button class="mtx-grid-row-expand-button" *ngIf="col.showExpand && !expandAlways"
                         mat-icon-button mtx-grid-expansion-toggle
                         [(opened)]="expansionRowStates[dataIndex].expanded"
                         (toggleChange)="_onExpansionChange($event, row, col, dataIndex);">
@@ -401,7 +401,7 @@
             <td mat-cell *matCellDef="let row; let dataIndex = dataIndex"
                 [attr.colspan]="displayedColumns.length">
               <div class="mtx-grid-expansion-detail"
-                   [@expansion]="expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed'">
+                   [@expansion]="expandAlways || expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed'">
                 <ng-template [ngTemplateOutlet]="expansionTemplate"
                              [ngTemplateOutletContext]="{ $implicit: row, rowData: row, index: dataIndex, expanded: expansionRowStates[dataIndex].expanded }">
                 </ng-template>
@@ -411,7 +411,7 @@
 
           <tr mat-row
               *matRowDef="let row; columns: ['MtxGridExpansionColumnDef']; let dataIndex = dataIndex"
-              [ngClass]="['mtx-grid-expansion', expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed']">
+              [ngClass]="['mtx-grid-expansion', expandAlways || expansionRowStates[dataIndex].expanded ? 'expanded' : 'collapsed']">
           </tr>
         </ng-container>
       </table>
