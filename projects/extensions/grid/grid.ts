@@ -229,6 +229,8 @@ export class MtxGrid implements OnChanges, AfterViewInit, OnDestroy {
 
   /** Whether the row is expandable. */
   @Input({ transform: booleanAttribute }) expandable = false;
+  /** Expand all rows automaticaly. */
+  @Input() expandAlways = false;
   /** The template for the expandable row. */
   @Input() expansionTemplate!: TemplateRef<any>;
   /** Event emitted when the user toggles the expandable row. */
