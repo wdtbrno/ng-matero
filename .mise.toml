@@ -1,0 +1,6 @@
+# https://mise.jdx.dev/configuration.html
+
+[tools]
+yarn = "latest"
+node = "21"
+
